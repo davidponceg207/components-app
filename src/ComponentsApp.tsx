@@ -1,9 +1,10 @@
-import { Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { Navigator } from './presentation/navigator/Navigator';
 
 export const ComponentsApp = () => {
     return (
-        <View>
-            <Text>ComponentsApp</Text>
-        </View>
+        <NavigationContainer>
+            <Navigator />
+        </NavigationContainer>
     )
 }
