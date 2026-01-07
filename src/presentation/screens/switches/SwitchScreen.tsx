@@ -3,6 +3,7 @@ import { Card } from '../../components/ui/Card';
 import { CustomView } from '../../components/ui/CustomView';
 import { useState } from 'react';
 import { CustomSwitch } from '../../components/ui/CustomSwitch';
+import { Separator } from '../../components/ui/Separator';
 
 export const SwitchScreen = () => {
 
@@ -25,11 +26,15 @@ export const SwitchScreen = () => {
                     text="Active"
                 />
 
+                <Separator />
+
                 <CustomSwitch
                     isOn={state.isHungry}
                     onChange={ (value) => setState({...state, isHungry: value}) }
                     text="Hungry"
                 />
+
+                <Separator />
 
                 <CustomSwitch
                     isOn={state.isHappy}
