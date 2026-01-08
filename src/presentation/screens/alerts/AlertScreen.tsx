@@ -1,8 +1,11 @@
-import { Alert, Text, View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { CustomView } from '../../components/ui/CustomView';
 import { Title } from '../../components/ui/Title';
 import { globalStyles } from '../../../config/theme/theme';
 import { Button } from '../../components/ui/Button';
+
+import prompt from 'react-native-prompt-android';
+import { showPrompt } from '../../../config/adapters/prompt.adapters';
 
 export const AlertScreen = () => {
 
@@ -30,15 +33,28 @@ export const AlertScreen = () => {
             { text: 'OK', onPress: () => console.log('OK Pressed') },
         ]);
 
-    const showPrompt = () => {
-        Alert.prompt(
-            'Email',
-            'Lorem ipsum',
-            (value: string) => console.log({value}),
-            'secure-text',
-            'default value',
-            'number-pad'
-        )
+    const onShowPrompt = () => {
+
+        // Custom
+        showPrompt({
+            title: 'Title',
+            subtitle: 'subtitle',
+            buttons: [
+                { text: 'Ok', onPress: () => console.log('ok') }
+            ],
+            placeholder: 'Placeholder'
+        })
+
+        // Native
+
+        // Alert.prompt(
+        //     'Email',
+        //     'Lorem ipsum',
+        //     (value: string) => console.log({value}),
+        //     'secure-text',
+        //     'default value',
+        //     'number-pad'
+        // )
     }
 
     return (
@@ -53,7 +69,7 @@ export const AlertScreen = () => {
 
             <View style={{ height: 10 }} />
 
-            <Button text="Prompt - Input" onPress={showPrompt} />
+            <Button text="Prompt - Input" onPress={onShowPrompt} />
         </CustomView>
     )
 }
