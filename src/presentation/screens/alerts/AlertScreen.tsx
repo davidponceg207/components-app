@@ -30,6 +30,17 @@ export const AlertScreen = () => {
             { text: 'OK', onPress: () => console.log('OK Pressed') },
         ]);
 
+    const showPrompt = () => {
+        Alert.prompt(
+            'Email',
+            'Lorem ipsum',
+            (value: string) => console.log({value}),
+            'secure-text',
+            'default value',
+            'number-pad'
+        )
+    }
+
     return (
         <CustomView style={ globalStyles.globalMargin }> 
             <Title safe text="Alerts" />
@@ -42,7 +53,7 @@ export const AlertScreen = () => {
 
             <View style={{ height: 10 }} />
 
-            <Button text="Prompt - Input" onPress={() => {}} />
+            <Button text="Prompt - Input" onPress={showPrompt} />
         </CustomView>
     )
 }
