@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import { FlatList, Text, View } from 'react-native';
-import { CustomView } from '../../components/ui/CustomView';
-import { Title } from '../../components/ui/Title';
+import { ActivityIndicator, FlatList, Image, View } from 'react-native';
 import { colors } from '../../../config/theme/theme';
 
 export const InfiniteScrollScreen = () => {
@@ -18,16 +16,30 @@ export const InfiniteScrollScreen = () => {
         }, 3000);
     }
     return (
-        <CustomView margin>
-            <Title text='Infinite Scroll' safe/>
-
+        <View style={{ backgroundColor: 'black' }}>
             <FlatList
                 data={ numbers }
-                renderItem={({item}) => <Text style={{ height: 300, backgroundColor: colors.primary, color: 'white', fontSize: 50 }}>{item}</Text>}
+                renderItem={({item}) => <ListItem number={item} />}
                 onEndReached={ loadMore }
                 onEndReachedThreshold={0.6}
                 keyExtractor={(item) => item.toString()}
+
+                ListFooterComponent={() => (
+                    <View style={{height: 150, justifyContent: 'center'}}>
+                        <ActivityIndicator size={ 40 } color={colors.primary} />
+                    </View>
+                )}
             />
-        </CustomView>
+        </View>
     )
 }
+
+interface ListItemProps {
+    number: number;
+}
+
+const ListItem = ({number}: ListItemProps) => {
+    return (
+        <Image source={{ uri: `https://picsum.photos/id/${number}/500/400` }} style={{height: 400, width: '100%'}} />
+    )
+};
