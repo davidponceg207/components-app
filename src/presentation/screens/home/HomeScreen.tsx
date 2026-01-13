@@ -2,6 +2,7 @@ import { ScrollView, Text, View } from 'react-native';
 import { globalStyles } from '../../../config/theme/theme';
 import { Title } from '../../components/ui/Title';
 import { MenuItem } from '../../components/ui/MenuItem';
+import { CustomView } from '../../components/ui/CustomView';
 
 const animationMenuItems = [
   {
@@ -70,8 +71,8 @@ const uiMenuItems = [
 
 export const HomeScreen = () => {
   return (
-    <View style={[globalStyles.mainContainer]}>
-      <View style={globalStyles.globalMargin}>
+    <CustomView margin>
+
         <ScrollView>
           <Title text='Options' safe />
 
@@ -108,7 +109,6 @@ export const HomeScreen = () => {
             ))
           }
         </ScrollView>
-      </View>
-    </View>
+    </CustomView>
   )
 }
