@@ -10,6 +10,7 @@ import { CustomSectionListScreen } from '../screens/ui/CustomSectionListScreen';
 import { ModalScreen } from '../screens/ui/ModalScreen';
 import { InfiniteScrollScreen } from '../screens/ui/InfiniteScrollScreen';
 import { SlidesScreen } from '../screens/ui/SlidesScreen';
+import { ChangeThemeScreen } from '../screens/theme/ChangeThemeScreen';
 
 
 
@@ -21,8 +22,10 @@ export const Navigator = () => {
       headerShown: false
     }}>
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
+
       <Stack.Screen name="Animation101Screen" component={Animation101Screen} />
       <Stack.Screen name="Animation102Screen" component={Animation102Screen} />
+
       <Stack.Screen name="SwitchScreen" component={SwitchScreen} />
       <Stack.Screen name="AlertScreen" component={AlertScreen} />
       <Stack.Screen name="TextInputScreen" component={TextInputScreen} />
@@ -32,6 +35,7 @@ export const Navigator = () => {
       <Stack.Screen name="InfiniteScrollScreen" component={InfiniteScrollScreen} />
 
       <Stack.Screen name="SlidesScreen" component={SlidesScreen} />
+      <Stack.Screen name="ChangeThemeScreen" component={ChangeThemeScreen} />
     </Stack.Navigator>
   );
 }
